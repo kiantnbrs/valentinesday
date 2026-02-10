@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine 💘</title>
+
+<style>
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        height: 100vh;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        overflow: hidden;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        width: 380px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        position: relative;
+    }
+
+    h1 { font-size: 2.2em; margin-bottom: 10px; }
+    p { font-size: 1.1em; margin-bottom: 30px; }
+
+    .buttons { position: relative; height: 80px; }
+
+    button {
+        padding: 12px 25px;
+        border: none;
+        border-radius: 30px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: absolute;
+    }
+
+    .yes {
+        background: #fff;
+        color: #ff4d6d;
+        font-weight: bold;
+        left: 50%;
+        transform: translateX(-120%);
+    }
+
+    .yes:hover {
+        background: #ffe3ea;
+        transform: translateX(-120%) scale(1.05);
+    }
+
+    .no {
+        background: transparent;
+        color: #fff;
+        border: 2px solid #fff;
+        left: 50%;
+        transform: translateX(20%);
+    }
+
+    .bear {
+        display: none;
+        margin-top: 30px;
+        animation: pop 0.6s ease forwards;
+    }
+
+    .bear img {
+        width: 200px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .bear h2 {
+        margin-top: 15px;
+        font-size: 1.5em;
+    }
+
+    @keyframes pop {
+        from { opacity: 0; transform: scale(0.6); }
+        to { opacity: 1; transform: scale(1); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Hey Love 💖</h1>
+    <p>
+        Valentine’s Day is coming…  
+        <br><br>
+        <strong>Will you be my Valentine’s date?</strong>
+    </p>
+
+    <div class="buttons">
+        <button class="yes" onclick="sayYes()">Yes 💘</button>
+        <button class="no" id="noBtn">No 🙈</button>
+    </div>
+
+    <div class="bear" id="bear">
+        <img src="couple.png" alt="Us together">
+        <h2>Yay! It’s a date 💕</h2>
+    </div>
+</div>
+
+<script>
+    const noBtn = document.getElementById("noBtn");
+
+    // Move button on hover or click
+    noBtn.addEventListener("mouseover", moveButton);
+    noBtn.addEventListener("click", moveButton);
+
+    function moveButton() {
+        const x = Math.random() * 200 - 100; // random X
+        const y = Math.random() * 80 - 40;   // random Y
+        noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function sayYes() {
+        document.querySelector(".buttons").style.display = "none";
+        document.getElementById("bear").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
